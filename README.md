@@ -1,4 +1,4 @@
-# Ray.RolesModule
+# Ray.AuthorizationModule
 
 
 ## Installation
