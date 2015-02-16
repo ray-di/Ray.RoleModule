@@ -1,0 +1,25 @@
+{
+    "name": "ray/authorizationmodule",
+    "description":" ",
+    "keywords":[
+    ],
+    "license": "BSD-3-Clause",
+    "autoload":{
+        "psr-4":{
+            "Ray\\AuthorizationModule\\": "src/"
+        }
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "Ray\\AuthorizationModule\\": "tests/",
+            "Ray\\AuthorizationModule\\": "tests/Fake"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
+    }
+}
