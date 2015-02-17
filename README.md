@@ -1,5 +1,6 @@
 # Ray.AuthorizationModule
 
+> **WORK IN PROGRESS.**
 
 ## Installation
 
