@@ -10,12 +10,11 @@ use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\RoleModule\Annotation\RequiresRoles;
-use Ray\RoleModule\Exception\RequiredRoleException;
-use Zend\Permissions\Acl\Acl;
+use Ray\RoleModule\Exception\RequiredRolesException;
 use Zend\Permissions\Acl\AclInterface;
 use Zend\Permissions\Acl\Resource\GenericResource;
 
-class RequiredRoleInterceptor implements MethodInterceptor
+class RequiredRolesInterceptor implements MethodInterceptor
 {
     private $reader;
 
@@ -55,7 +54,7 @@ class RequiredRoleInterceptor implements MethodInterceptor
             return $invocation->proceed();
         }
         $msg = sprintf("%s for %s", $role, $target);
-        $e = new RequiredRoleException($msg);
+        $e = new RequiredRolesException($msg);
         $e->setMethodInvocation($invocation);
 
         throw $e;
