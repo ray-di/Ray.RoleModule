@@ -4,7 +4,7 @@
 
 ### Composer install
 
-    $ composer require ray/authorization-module
+    $ composer require ray/role-module
  
 ### Module install
 
