@@ -5,7 +5,7 @@ namespace Ray\RoleModule;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Ray\Aop\Arguments;
 use Ray\Aop\ReflectiveMethodInvocation;
-use Ray\RoleModule\Exception\RequiredRoleException;
+use Ray\RoleModule\Exception\RequiredRolesException;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\AclInterface;
 use Zend\Permissions\Acl\Role\GenericRole;
@@ -16,7 +16,7 @@ class RequiredRoleInterceptorTest extends \PHPUnit_Framework_TestCase
     {
         $invocation = new ReflectiveMethodInvocation(
             $obj, new \ReflectionMethod($obj, $method), new Arguments($args), [
-                new RequiredRoleInterceptor(new AnnotationReader, $acl, $roleProvider)
+                new RequiredRolesInterceptor(new AnnotationReader, $acl, $roleProvider)
             ]
         );
         return $invocation;
@@ -40,7 +40,7 @@ class RequiredRoleInterceptorTest extends \PHPUnit_Framework_TestCase
 
     public function testMethodDeny()
     {
-        $this->setExpectedException(RequiredRoleException::class);
+        $this->setExpectedException(RequiredRolesException::class);
         $acl = new Acl();
         $acl->addRole(new GenericRole('admin'));
         $acl->addRole(new GenericRole('guest'));

@@ -8,7 +8,7 @@ namespace Ray\RoleModule\Exception;
 
 use Ray\Aop\MethodInvocation;
 
-class RequiredRoleException extends RuntimeException
+class RequiredRolesException extends RuntimeException
 {
     public $invocation;
 

@@ -47,13 +47,13 @@ class ZendAclModule extends AbstractModule
         $this->bindInterceptor(
             $this->matcher->any(),
             $this->matcher->annotatedWith(RequiresRoles::class),
-            [RequiredRoleInterceptor::class]
+            [RequiredRolesInterceptor::class]
         );
         //  class
         $this->bindInterceptor(
             $this->matcher->annotatedWith(RequiresRoles::class),
             $this->matcher->any(),
-            [RequiredRoleInterceptor::class]
+            [RequiredRolesInterceptor::class]
         );
     }
 }

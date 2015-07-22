@@ -3,7 +3,7 @@
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Ray\Di\Injector;
 use Ray\RoleModule\Annotation\RequiresRoles;
-use Ray\RoleModule\Exception\RequiredRoleException;
+use Ray\RoleModule\Exception\RequiredRolesException;
 use Ray\RoleModule\RoleProviderInterface;
 use Ray\RoleModule\ZendAclModule;
 use Zend\Permissions\Acl\Acl;
@@ -40,6 +40,6 @@ $admin = (new Injector(new ZendAclModule($acl, RoleProvider::class)))->getInstan
 /** @var $admin Admin */
 try {
     $admin->createUser('ray');
-} catch (RequiredRoleException $e) {
+} catch (RequiredRolesException $e) {
     echo "It works !" . PHP_EOL;
 }
