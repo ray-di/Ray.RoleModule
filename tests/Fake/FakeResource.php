@@ -1,13 +1,13 @@
 <?php
 /**
- * This file is part of the Ray.AuthorizationModule
+ * This file is part of the Ray.RoleModule
  *
  * @license http://opensource.org/licenses/MIT MIT
  */
-namespace Ray\AuthorizationModule;
+namespace Ray\RoleModule;
 
 
-use Ray\AuthorizationModule\Annotation\RequiresRoles;
+use Ray\RoleModule\Annotation\RequiresRoles;
 
 class FakeResource
 {

@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of the Ray.AuthorizationModule
+ * This file is part of the Ray.RoleModule
  *
  * @license http://opensource.org/licenses/MIT MIT
  */
-namespace Ray\AuthorizationModule;
+namespace Ray\RoleModule;
 
 class FakeRoleAdminProvider implements RoleProviderInterface
 {

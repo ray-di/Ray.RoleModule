@@ -1,5 +1,5 @@
 {
-    "name": "ray/authorizationmodule",
+    "name": "ray/RoleModule",
     "description":" ",
     "keywords":[
     ],
@@ -10,13 +10,13 @@
     },
     "autoload":{
         "psr-4":{
-            "Ray\\AuthorizationModule\\": "src/"
+            "Ray\\RoleModule\\": "src/"
         }
     },
     "autoload-dev":{
         "psr-4":{
-            "Ray\\AuthorizationModule\\": "tests/",
-            "Ray\\AuthorizationModule\\": "tests/Fake"
+            "Ray\\RoleModule\\": "tests/",
+            "Ray\\RoleModule\\": "tests/Fake"
         }
     },
     "minimum-stability": "dev",

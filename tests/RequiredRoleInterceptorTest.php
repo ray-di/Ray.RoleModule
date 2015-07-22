@@ -1,11 +1,11 @@
 <?php
 
-namespace Ray\AuthorizationModule;
+namespace Ray\RoleModule;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Ray\Aop\Arguments;
 use Ray\Aop\ReflectiveMethodInvocation;
-use Ray\AuthorizationModule\Exception\RequiredRoleException;
+use Ray\RoleModule\Exception\RequiredRoleException;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\AclInterface;
 use Zend\Permissions\Acl\Role\GenericRole;

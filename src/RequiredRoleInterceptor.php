@@ -1,16 +1,16 @@
 <?php
 /**
- * This file is part of the Ray.AuthorizationModule
+ * This file is part of the Ray.RoleModule
  *
  * @license http://opensource.org/licenses/MIT MIT
  */
-namespace Ray\AuthorizationModule;
+namespace Ray\RoleModule;
 
 use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\AuthorizationModule\Annotation\RequiresRoles;
-use Ray\AuthorizationModule\Exception\RequiredRoleException;
+use Ray\RoleModule\Annotation\RequiresRoles;
+use Ray\RoleModule\Exception\RequiredRoleException;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\AclInterface;
 use Zend\Permissions\Acl\Resource\GenericResource;

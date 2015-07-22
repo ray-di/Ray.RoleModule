@@ -1,8 +1,8 @@
 <?php
 
-namespace Ray\AuthorizationModule;
+namespace Ray\RoleModule;
 
-use Ray\AuthorizationModule\Exception\RequiredRoleException;
+use Ray\RoleModule\Exception\RequiredRoleException;
 use Ray\Di\Injector;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Role\GenericRole;
