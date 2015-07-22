@@ -41,6 +41,5 @@ $admin = (new Injector(new ZendAclModule($acl, RoleProvider::class)))->getInstan
 try {
     $admin->createUser('ray');
 } catch (RequiredRoleException $e) {
-   echo "It works !" . PHP_EOL;
+    echo "It works !" . PHP_EOL;
 }
-

@@ -1,4 +1,4 @@
-<?php 
+<?php
 use Ray\RoleModule\Annotation\RequiresRoles;class Ray_RoleModule_FakeResource_MlBgAII extends Ray\RoleModule\FakeResource implements Ray\Aop\WeavedInterface
 {
     private $isIntercepting = true;
@@ -6,7 +6,7 @@ use Ray\RoleModule\Annotation\RequiresRoles;class Ray_RoleModule_FakeResource_Ml
     /**
      * @RequiresRoles({"admin"})
      */
-    function createUser()
+    public function createUser()
     {
         if (isset($this->bindings[__FUNCTION__]) === false) {
             return call_user_func_array('parent::' . __FUNCTION__, func_get_args());

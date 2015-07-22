@@ -7,3 +7,4 @@ $loader = require dirname(__DIR__) . '/vendor/autoload.php';
 AnnotationRegistry::registerLoader([$loader, 'loadClass']);
 
 //require dirname(__DIR__) . '/src/Annotation/RequiresRoles.php';
+
