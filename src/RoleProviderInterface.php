@@ -6,6 +6,8 @@
  */
 namespace Ray\AuthorizationModule;
 
-class AuthorizationModule
+use Ray\Di\Provider;
+
+interface RoleProviderInterface extends Provider
 {
 }

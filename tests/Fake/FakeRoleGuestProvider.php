@@ -6,6 +6,10 @@
  */
 namespace Ray\AuthorizationModule;
 
-class AuthorizationModule
+class FakeRoleGuestProvider implements RoleProviderInterface
 {
+    public function get()
+    {
+        return 'guest';
+    }
 }

@@ -6,6 +6,10 @@
  */
 namespace Ray\AuthorizationModule;
 
-class AuthorizationModule
+class FakeRoleAdminProvider implements RoleProviderInterface
 {
+    public function get()
+    {
+        return 'admin';
+    }
 }
