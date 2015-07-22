@@ -29,6 +29,18 @@ class ZendAclModuleTest extends \PHPUnit_Framework_TestCase
         $injector = new Injector(new ZendAclModule($acl, FakeRoleGuestProvider::class), __DIR__ . '/tmp');
         /** @var $resource FakeResource */
         $resource = $injector->getInstance(FakeResource::class);
-        $result = $resource->createUser();
+        $resource->createUser();
+    }
+
+    public function testModuleClassDeny()
+    {
+        $this->setExpectedException(RequiredRoleException::class);
+        $acl = new Acl();
+        $acl->addRole(new GenericRole('admin'));
+        $acl->addRole(new GenericRole('guest'));
+        $injector = new Injector(new ZendAclModule($acl, FakeRoleGuestProvider::class), __DIR__ . '/tmp');
+        /** @var $resource FakeClassResource */
+        $resource = $injector->getInstance(FakeClassResource::class);
+        $resource->createUser();
     }
 }

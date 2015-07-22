@@ -51,26 +51,34 @@ class AppModule extends AbstractModule
 Simple usage:
 
 ```php
+use Ray\RoleModule\Annotation\RequiresRoles;
+
+/**
+ * @RequiresRoles({"admin"})
+ */
 class Foo
 {
-    /**
-     * @RequiresRoles({"admin"})
-     */
     public function createUser($id)
     {
 ```
 
+You can annotated individual method too, It has priority over class annotation.
 ```php
 class Foo
 {
     /**
-     * @RequiresRoles({"admin","editor"})
+     * @RequiresRoles({"admin", "editor"})
      */
     public function createUser($id)
     {
 ```
 
- 
+### Demo
+```php
+$ php docs/demo/run.php
+// It works!
+```
+
 ### Requirements
 
  * PHP 5.4+

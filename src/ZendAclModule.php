@@ -43,9 +43,16 @@ class ZendAclModule extends AbstractModule
         $this->bind(Reader::class)->to(AnnotationReader::class);
         $this->bind(AclInterface::class)->toInstance($this->acl);
         $this->bind(RoleProviderInterface::class)->to($this->roleProvider)->in(Scope::SINGLETON);
+        // method
         $this->bindInterceptor(
             $this->matcher->any(),
             $this->matcher->annotatedWith(RequiresRoles::class),
+            [RequiredRoleInterceptor::class]
+        );
+        //  class
+        $this->bindInterceptor(
+            $this->matcher->annotatedWith(RequiresRoles::class),
+            $this->matcher->any(),
             [RequiredRoleInterceptor::class]
         );
     }

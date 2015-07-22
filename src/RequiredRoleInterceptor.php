@@ -40,6 +40,10 @@ class RequiredRoleInterceptor implements MethodInterceptor
     {
         /** @var $annotation RequiresRoles */
         $annotation = $this->reader->getMethodAnnotation($invocation->getMethod(), RequiresRoles::class);
+        if (! $annotation) {
+            $class = new \ReflectionClass($invocation->getThis());
+            $annotation = $this->reader->getClassAnnotation($class, RequiresRoles::class);
+        }
         $target = get_class($invocation->getThis());
         $this->acl->addResource(new GenericResource($target));
         foreach ($annotation->value as $role) {

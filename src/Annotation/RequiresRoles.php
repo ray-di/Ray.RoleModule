@@ -8,7 +8,7 @@ namespace Ray\RoleModule\Annotation;
 
 /**
  * @Annotation
- * @Target({"METHOD"})
+ * @Target({"CLASS", "METHOD"})
  */
 final class RequiresRoles
 {
