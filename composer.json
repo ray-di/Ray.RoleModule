@@ -1,12 +1,12 @@
 {
-    "name": "ray/RoleModule",
-    "description":" ",
+    "name": "ray/role-module",
+    "description":"Role Module for Ray.Di",
     "keywords":[
     ],
     "license": "MIT",
     "require": {
         "zendframework/zend-permissions-acl": "~2.5",
-        "ray/di": "2.x-dev"
+        "ray/di": "~2.0"
     },
     "autoload":{
         "psr-4":{
