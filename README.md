@@ -23,7 +23,7 @@ class AppRoleProvider implements RoleProviderInterface
 Install module with `RoleProvider`.
 
 ```php
-use Ray\RoleModule\RoleModule;
+use Ray\RoleModule\ZendAclModule;
 use Ray\Di\AbstractModule;
 use Zend\Permissions\Acl\Role\GenericRole;
 use Zend\Permissions\Acl\Acl;
@@ -39,7 +39,7 @@ class AppModule extends AbstractModule
         $acl->addRole(new GenericRole('staff'), $roleGuest);
         $acl->addRole(new GenericRole('editor'), 'staff');
         $acl->addRole(new GenericRole('administrator'));
-        $this->install(new RoleModule($acl, AppRoleProvider::class));
+        $this->install(new ZendAclModule($acl, AppRoleProvider::class));
     }
 }
 ```
