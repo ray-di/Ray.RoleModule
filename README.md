@@ -1,4 +1,4 @@
-# Ray.AuthorizationModule
+# Ray.RoleModule
 
 > **WORK IN PROGRESS.**
 
@@ -10,9 +10,25 @@
  
 ### Module install
 
+You need to provide `RoleProvider`.
+
 ```php
-use Ray\AuthorizationModule\AuthorizationModule;
+class AppRoleProvider implements RoleProviderInterface
+{
+    public function get()
+    {
+        return 'admin';
+    }
+}
+```
+
+Install module with `RoleProvider`.
+
+```php
+use Ray\RoleModule\RoleModule;
 use Ray\Di\AbstractModule;
+use Zend\Permissions\Acl\Role\GenericRole;
+use Zend\Permissions\Acl\Acl;
 
 class AppModule extends AbstractModule
 {
@@ -20,40 +36,49 @@ class AppModule extends AbstractModule
     {
         // @see http://framework.zend.com/manual/current/en/modules/zend.permissions.acl.intro.html
         $acl = new Acl();
-        $roleGuest = new Role('guest');
+        $roleGuest = new GenericRole('guest');
         $acl->addRole($roleGuest);
-        $acl->addRole(new Role('staff'), $roleGuest);
-        $acl->addRole(new Role('editor'), 'staff');
-        $acl->addRole(new Role('administrator'));
-        $this->install(new AuthorizationModule($acl));
+        $acl->addRole(new GenericRole('staff'), $roleGuest);
+        $acl->addRole(new GenericRole('editor'), 'staff');
+        $acl->addRole(new GenericRole('administrator'));
+        $this->install(new RoleModule($acl, AppRoleProvider::class));
     }
 }
 ```
+
 ### Usage
 
 Simple usage:
 
 ```php
+use Ray\RoleModule\Annotation\RequiresRoles;
+
+/**
+ * @RequiresRoles({"admin"})
+ */
 class Foo
 {
-    /**
-     * @RequiresRoles({"admin"})
-     */
     public function createUser($id)
     {
 ```
 
+You can annotated individual method too, It has priority over class annotation.
 ```php
 class Foo
 {
     /**
-     * @RequiresRoles(value={"admin","editor"}, logical=OR)
+     * @RequiresRoles({"admin", "editor"})
      */
     public function createUser($id)
     {
 ```
 
- 
+### Demo
+```php
+$ php docs/demo/run.php
+// It works!
+```
+
 ### Requirements
 
  * PHP 5.4+
