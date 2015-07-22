@@ -12,7 +12,7 @@ class RequiredRoleException extends RuntimeException
 {
     public $invocation;
 
-    public function __construct(MethodInvocation $invocation)
+    public function setMethodInvocation(MethodInvocation $invocation)
     {
         $this->invocation = $invocation;
     }

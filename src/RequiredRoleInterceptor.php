@@ -50,6 +50,10 @@ class RequiredRoleInterceptor implements MethodInterceptor
         if ($isAllowed) {
             return $invocation->proceed();
         }
-        throw new RequiredRoleException($invocation);
+        $msg = sprintf("%s for %s", $role, $target);
+        $e = new RequiredRoleException($msg);
+        $e->setMethodInvocation($invocation);
+
+        throw $e;
     }
 }
