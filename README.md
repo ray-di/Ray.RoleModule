@@ -1,7 +1,5 @@
 # Ray.RoleModule
 
-> **WORK IN PROGRESS.**
-
 ## Installation
 
 ### Composer install
