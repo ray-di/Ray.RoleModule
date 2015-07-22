@@ -10,9 +10,25 @@
  
 ### Module install
 
+You need to provide `RoleProvider`.
+
+```php
+class AppRoleProvider implements RoleProviderInterface
+{
+    public function get()
+    {
+        return 'admin';
+    }
+}
+```
+
+Install module with `RoleProvider`.
+
 ```php
 use Ray\AuthorizationModule\AuthorizationModule;
 use Ray\Di\AbstractModule;
+use Zend\Permissions\Acl\Role\GenericRole;
+use Zend\Permissions\Acl\Acl;
 
 class AppModule extends AbstractModule
 {
@@ -20,15 +36,16 @@ class AppModule extends AbstractModule
     {
         // @see http://framework.zend.com/manual/current/en/modules/zend.permissions.acl.intro.html
         $acl = new Acl();
-        $roleGuest = new Role('guest');
+        $roleGuest = new GenericRole('guest');
         $acl->addRole($roleGuest);
-        $acl->addRole(new Role('staff'), $roleGuest);
-        $acl->addRole(new Role('editor'), 'staff');
-        $acl->addRole(new Role('administrator'));
-        $this->install(new AuthorizationModule($acl));
+        $acl->addRole(new GenericRole('staff'), $roleGuest);
+        $acl->addRole(new GenericRole('editor'), 'staff');
+        $acl->addRole(new GenericRole('administrator'));
+        $this->install(new AuthorizationModule($acl, AppRoleProvider::class));
     }
 }
 ```
+
 ### Usage
 
 Simple usage:
@@ -47,7 +64,7 @@ class Foo
 class Foo
 {
     /**
-     * @RequiresRoles(value={"admin","editor"}, logical=OR)
+     * @RequiresRoles({"admin","editor"})
      */
     public function createUser($id)
     {
