@@ -1,6 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <phpunit bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite>
+        <testsuite name="Ray.RoleModule">
             <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>

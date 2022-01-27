@@ -15,8 +15,7 @@
     },
     "autoload-dev":{
         "psr-4":{
-            "Ray\\RoleModule\\": "tests/",
-            "Ray\\RoleModule\\": "tests/Fake"
+            "Ray\\RoleModule\\": ["tests/", "tests/Fake"]
         }
     },
     "minimum-stability": "dev",
