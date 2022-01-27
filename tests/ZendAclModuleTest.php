@@ -4,8 +4,8 @@ namespace Ray\RoleModule;
 
 use Ray\RoleModule\Exception\RequiredRolesException;
 use Ray\Di\Injector;
-use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Acl\Role\GenericRole;
+use Laminas\Permissions\Acl\Acl;
+use Laminas\Permissions\Acl\Role\GenericRole;
 
 class ZendAclModuleTest extends \PHPUnit_Framework_TestCase
 {

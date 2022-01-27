@@ -11,7 +11,7 @@ use Doctrine\Common\Annotations\Reader;
 use Ray\RoleModule\Annotation\RequiresRoles;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
-use Zend\Permissions\Acl\AclInterface;
+use Laminas\Permissions\Acl\AclInterface;
 
 class ZendAclModule extends AbstractModule
 {

@@ -6,9 +6,9 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Ray\Aop\Arguments;
 use Ray\Aop\ReflectiveMethodInvocation;
 use Ray\RoleModule\Exception\RequiredRolesException;
-use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Acl\AclInterface;
-use Zend\Permissions\Acl\Role\GenericRole;
+use Laminas\Permissions\Acl\Acl;
+use Laminas\Permissions\Acl\AclInterface;
+use Laminas\Permissions\Acl\Role\GenericRole;
 
 class RequiredRoleInterceptorTest extends \PHPUnit_Framework_TestCase
 {

@@ -5,8 +5,8 @@
     ],
     "license": "MIT",
     "require": {
-        "zendframework/zend-permissions-acl": "~2.5",
-        "ray/di": "~2.0"
+        "ray/di": "~2.0",
+        "laminas/laminas-permissions-acl": "~2.5"
     },
     "autoload":{
         "psr-4":{

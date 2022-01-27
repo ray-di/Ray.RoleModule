@@ -11,8 +11,8 @@ use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\RoleModule\Annotation\RequiresRoles;
 use Ray\RoleModule\Exception\RequiredRolesException;
-use Zend\Permissions\Acl\AclInterface;
-use Zend\Permissions\Acl\Resource\GenericResource;
+use Laminas\Permissions\Acl\AclInterface;
+use Laminas\Permissions\Acl\Resource\GenericResource;
 
 class RequiredRolesInterceptor implements MethodInterceptor
 {
