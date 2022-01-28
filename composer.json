@@ -17,7 +17,5 @@
         "psr-4":{
             "Ray\\RoleModule\\": ["tests/", "tests/Fake"]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
