@@ -13,7 +13,7 @@ use Ray\RoleModule\ZendAclModule;
 use Ray\RoleModule\ARoleProviderInterface;
 use function interface_exists;
 
-$loader = require dirname(__DIR__, 2) . '/vendor/autoload.php';
+$loader = require dirname(__DIR__) . '/vendor/autoload.php';
 assert($loader instanceof ClassLoader);
 $loader->addPsr4('Ray\\Demo\\', __DIR__ . '/src');
 

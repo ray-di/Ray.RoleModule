@@ -48,3 +48,6 @@ jobs:
 
       - name: Run test suite
         run: ./vendor/bin/phpunit
+
+      - name: Run demo
+        run:  php ./demo/run.php
