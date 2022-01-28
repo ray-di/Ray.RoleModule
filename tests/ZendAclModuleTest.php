@@ -2,12 +2,13 @@
 
 namespace Ray\RoleModule;
 
+use PHPUnit\Framework\TestCase;
 use Ray\RoleModule\Exception\RequiredRolesException;
 use Ray\Di\Injector;
-use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Acl\Role\GenericRole;
+use Laminas\Permissions\Acl\Acl;
+use Laminas\Permissions\Acl\Role\GenericRole;
 
-class ZendAclModuleTest extends \PHPUnit_Framework_TestCase
+class ZendAclModuleTest extends TestCase
 {
     public function testModuleAllow()
     {
@@ -22,7 +23,7 @@ class ZendAclModuleTest extends \PHPUnit_Framework_TestCase
 
     public function testModuleDeny()
     {
-        $this->setExpectedException(RequiredRolesException::class);
+        $this->expectException(RequiredRolesException::class);
         $acl = new Acl();
         $acl->addRole(new GenericRole('admin'));
         $acl->addRole(new GenericRole('guest'));
@@ -34,7 +35,7 @@ class ZendAclModuleTest extends \PHPUnit_Framework_TestCase
 
     public function testModuleClassDeny()
     {
-        $this->setExpectedException(RequiredRolesException::class);
+        $this->expectException(RequiredRolesException::class);
         $acl = new Acl();
         $acl->addRole(new GenericRole('admin'));
         $acl->addRole(new GenericRole('guest'));
