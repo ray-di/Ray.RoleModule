@@ -73,7 +73,7 @@ class Foo
 
 ### Demo
 ```php
-$ php docs/demo/run.php
+$ php demo/run.php
 // It works!
 ```
 
