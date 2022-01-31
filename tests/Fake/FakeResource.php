@@ -14,6 +14,7 @@ class FakeResource
     /**
      * @RequiresRoles({"admin"})
      */
+    #[RequiresRoles(value: ['admin'])]
     public function createUser()
     {
         return true;
