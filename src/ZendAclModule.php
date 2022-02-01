@@ -8,6 +8,8 @@ namespace Ray\RoleModule;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\Reader;
+use Koriym\Attributes\AttributeReader;
+use Koriym\Attributes\DualReader;
 use Ray\RoleModule\Annotation\RequiresRoles;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
@@ -40,7 +42,12 @@ class ZendAclModule extends AbstractModule
      */
     protected function configure()
     {
-        $this->bind(Reader::class)->to(AnnotationReader::class);
+        $this->bind(Reader::class)->toConstructor(DualReader::class, [
+            'annotationReader' => 'annotation',
+            'attributeReader' => 'attribute',
+        ]);
+        $this->bind(Reader::class)->annotatedWith('annotation')->to(AnnotationReader::class);
+        $this->bind(Reader::class)->annotatedWith('attribute')->to(AttributeReader::class);
         $this->bind(AclInterface::class)->toInstance($this->acl);
         $this->bind(RoleProviderInterface::class)->to($this->roleProvider)->in(Scope::SINGLETON);
         // method

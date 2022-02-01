@@ -51,22 +51,22 @@ Simple usage:
 ```php
 use Ray\RoleModule\Annotation\RequiresRoles;
 
-/**
- * @RequiresRoles({"admin"})
- */
+#[RequiresRoles(['admin'])]
 class Foo
 {
     public function createUser($id)
     {
 ```
 
-You can annotated individual method too, It has priority over class annotation.
+You can annotate individual method too, It has priority over class attribute.
+
 ```php
+use Ray\RoleModule\Annotation\RequiresRoles;
+
 class Foo
 {
-    /**
-     * @RequiresRoles({"admin", "editor"})
-     */
+   
+    #[RequiresRoles(['admin', 'editor'])]
     public function createUser($id)
     {
 ```
@@ -79,5 +79,5 @@ $ php demo/run.php
 
 ### Requirements
 
- * PHP 5.4+
+ * PHP 7.3+
  * hhvm
