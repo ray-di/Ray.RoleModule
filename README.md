@@ -72,12 +72,8 @@ class Foo
 ```
 
 ### Demo
+
 ```php
 $ php demo/run.php
 // It works!
 ```
-
-### Requirements
-
- * PHP 7.3+
- * hhvm
