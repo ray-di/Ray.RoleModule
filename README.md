@@ -25,8 +25,8 @@ Install module with `RoleProvider`.
 ```php
 use Ray\RoleModule\ZendAclModule;
 use Ray\Di\AbstractModule;
-use Zend\Permissions\Acl\Role\GenericRole;
-use Zend\Permissions\Acl\Acl;
+use Laminas\Permissions\Acl\Role\GenericRole;
+use Laminas\Permissions\Acl\Acl;
 
 class AppModule extends AbstractModule
 {
