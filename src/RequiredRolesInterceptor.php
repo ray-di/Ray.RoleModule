@@ -6,7 +6,6 @@
  */
 namespace Ray\RoleModule;
 
-use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\RoleModule\Annotation\RequiresRoles;
@@ -16,18 +15,12 @@ use Laminas\Permissions\Acl\Resource\GenericResource;
 
 class RequiredRolesInterceptor implements MethodInterceptor
 {
-    private $reader;
+    private AclInterface $acl;
 
-    /**
-     * @var AclInterface
-     */
-    private $acl;
+    private RoleProviderInterface $roleProvider;
 
-    private $roleProvider;
-
-    public function __construct(Reader $reader, AclInterface $acl, RoleProviderInterface $roleProvider)
+    public function __construct(AclInterface $acl, RoleProviderInterface $roleProvider)
     {
-        $this->reader = $reader;
         $this->acl = $acl;
         $this->roleProvider = $roleProvider;
     }
@@ -37,12 +30,12 @@ class RequiredRolesInterceptor implements MethodInterceptor
      */
     public function invoke(MethodInvocation $invocation)
     {
-        /** @var $annotation RequiresRoles */
-        $annotation = $this->reader->getMethodAnnotation($invocation->getMethod(), RequiresRoles::class);
-        if (! $annotation) {
+        $attrs = $invocation->getMethod()->getAttributes(RequiresRoles::class);
+        if (! $attrs) {
             $class = new \ReflectionClass($invocation->getThis());
-            $annotation = $this->reader->getClassAnnotation($class, RequiresRoles::class);
+            $attrs = $class->getAttributes(RequiresRoles::class);
         }
+        $annotation = $attrs[0]->newInstance();
         $target = get_class($invocation->getThis());
         $this->acl->addResource(new GenericResource($target));
         foreach ($annotation->value as $role) {

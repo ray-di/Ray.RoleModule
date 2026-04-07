@@ -9,9 +9,6 @@ namespace Ray\RoleModule;
 
 use Ray\RoleModule\Annotation\RequiresRoles;
 
-/**
- * @RequiresRoles({"admin"})
- */
 #[RequiresRoles(value: ['admin'])]
 class FakeClassResource
 {

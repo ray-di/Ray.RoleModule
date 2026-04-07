@@ -11,9 +11,6 @@ use Ray\RoleModule\Annotation\RequiresRoles;
 
 class FakeResource
 {
-    /**
-     * @RequiresRoles({"admin"})
-     */
     #[RequiresRoles(value: ['admin'])]
     public function createUser()
     {

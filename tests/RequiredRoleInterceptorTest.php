@@ -2,9 +2,6 @@
 
 namespace Ray\RoleModule;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Koriym\Attributes\AttributeReader;
-use Koriym\Attributes\DualReader;
 use PHPUnit\Framework\TestCase;
 use Ray\Aop\ReflectiveMethodInvocation;
 use Ray\RoleModule\Exception\RequiredRolesException;
@@ -18,7 +15,7 @@ class RequiredRoleInterceptorTest extends TestCase
     {
         $invocation = new ReflectiveMethodInvocation(
             $obj, $method, $args, [
-                new RequiredRolesInterceptor(new DualReader(new AnnotationReader(),new AttributeReader()), $acl, $roleProvider)
+                new RequiredRolesInterceptor($acl, $roleProvider)
             ]
         );
         return $invocation;
