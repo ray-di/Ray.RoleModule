@@ -35,6 +35,10 @@ class RequiredRolesInterceptor implements MethodInterceptor
             $class = new \ReflectionClass($invocation->getThis());
             $attrs = $class->getAttributes(RequiresRoles::class);
         }
+        if (! $attrs) {
+            return $invocation->proceed();
+        }
+
         $annotation = $attrs[0]->newInstance();
         $target = get_class($invocation->getThis());
         $this->acl->addResource(new GenericResource($target));

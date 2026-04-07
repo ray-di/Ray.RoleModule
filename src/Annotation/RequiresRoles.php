@@ -11,10 +11,7 @@ use Attribute;
 #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 final class RequiresRoles
 {
-    public array $value;
-
-    public function __construct(array $value)
+    public function __construct(public array $value)
     {
-        $this->value = $value;
     }
 }
