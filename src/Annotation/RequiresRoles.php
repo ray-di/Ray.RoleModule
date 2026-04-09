@@ -8,20 +8,10 @@ namespace Ray\RoleModule\Annotation;
 
 use Attribute;
 
-/**
- * @Annotation
- * @Target({"CLASS", "METHOD"})
- */
 #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 final class RequiresRoles
 {
-    /**
-     * @var array
-     */
-    public $value;
-
-    public function __construct(array $value)
+    public function __construct(public array $value)
     {
-        $this->value = $value;
     }
 }
