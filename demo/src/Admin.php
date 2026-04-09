@@ -8,9 +8,7 @@ use Ray\RoleModule\Annotation\RequiresRoles;
 
 class Admin
 {
-    /**
-     * @RequiresRoles({"login"})
-     */
+    #[RequiresRoles(['login'])]
     public function createUser(string $id): void
     {
         // login required
