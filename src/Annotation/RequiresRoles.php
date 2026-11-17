@@ -8,9 +8,15 @@ namespace Ray\RoleModule\Annotation;
 
 use Attribute;
 
+/**
+ * Lets only the listed roles call the method, or every method of the class
+ *
+ * @see \Ray\RoleModule\RequiredRolesInterceptor
+ */
 #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 final class RequiresRoles
 {
+    /** @param list<string> $value Roles allowed to call */
     public function __construct(public array $value)
     {
     }
