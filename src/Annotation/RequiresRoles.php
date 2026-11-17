@@ -10,6 +10,7 @@ use Attribute;
 
 /**
  * Lets only the listed roles call the method, or every method of the class
+ * Other roles pass when the injected ACL already allows them on every resource or on the class
  *
  * @see \Ray\RoleModule\RequiredRolesInterceptor
  */
